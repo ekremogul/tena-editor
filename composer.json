@@ -1,0 +1,26 @@
+{
+    "name": "ekremogul/tena-editor",
+    "description": "TenaHaber EditorJS Helper",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Ekremogul\\TenaEditor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ekrem OĞUL"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ekremogul\\TenaEditor\\TenaEditorServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "ezyang/htmlpurifier": "^4.8"
+    },
+    "minimum-stability": "dev"
+}
