@@ -64,7 +64,7 @@ class TenaEditor
 
         foreach ($data['blocks'] as $blockData) {
             if (is_array($blockData)) {
-                array_push($this->blocks, $blockData);
+                $this->blocks[] = $blockData;
             } else {
                 throw new EditorJSException('Block must be an Array');
             }
@@ -86,7 +86,7 @@ class TenaEditor
                 $block["tunes"] ?? []
             );
             if (!empty($sanitizedBlock)) {
-                array_push($sanitizedBlocks, $sanitizedBlock);
+                $sanitizedBlocks[] = $sanitizedBlock;
             }
         }
 
@@ -104,8 +104,10 @@ class TenaEditor
         return true;
     }
 
-    public static function render(string $data): string
+    public static function render(string | array $data): string
     {
+        if(is_array($data))
+            $data = json_encode($data);
         try {
             $configJson = json_encode(config('tena-editor.config') ?: []);
 
